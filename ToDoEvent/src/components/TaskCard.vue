@@ -1,10 +1,19 @@
 <template>
   <div 
-    class="bg-white rounded-[10px] border border-[#e5e0d8] p-3 mb-2 transition-all duration-200 hover:shadow-[0_4px_14px_rgba(28,35,64,0.1)] hover:-translate-y-[1px] cursor-grab active:cursor-grabbing"
+    class="relative bg-white rounded-[10px] border border-[#e5e0d8] p-3 mb-2 transition-all duration-200 hover:shadow-[0_4px_14px_rgba(28,35,64,0.1)] hover:-translate-y-[1px] cursor-grab active:cursor-grabbing group"
     :class="{ 'opacity-85': task.status === 'Done' }"
   >
+    
+    <button 
+      @click.stop="$emit('edit', task)" 
+      class="absolute top-2 right-2 w-6 h-6 flex items-center justify-center bg-[#F5F0E8] rounded-md text-[#D4862A] hover:bg-[#e5e0d8] transition-colors"
+      title="Edit Task"
+    >
+      <i class="fas fa-pencil-alt text-[10px]"></i>
+    </button>
+
     <h4 
-      class="text-[13px] font-semibold text-[#1C2340] mb-1.5"
+      class="text-[13px] font-semibold text-[#1C2340] mb-1.5 pr-8"
       :class="{ 'line-through text-[#9ca3af]': task.status === 'Done' }"
     >
       {{ task.title }}
@@ -23,7 +32,7 @@
 
     <div class="flex items-center justify-between mt-2">
       <span class="text-[10px] text-[#9ca3af] flex items-center gap-1">
-        📅 {{ task.dueDate || 'No Date' }}
+        💫 {{ task.dueDate || 'No Date' }}
         <strong v-if="task.cost" class="font-semibold text-[#1C2340] ml-1">${{ task.cost }}</strong>
       </span>
       
@@ -39,6 +48,9 @@
 <script setup>
 import { computed } from 'vue';
 
+// Tell the parent component when the edit button is clicked
+defineEmits(['edit']);
+
 const props = defineProps({
   task: {
     type: Object,
@@ -46,7 +58,6 @@ const props = defineProps({
   }
 });
 
-// Calculate Tailwind classes for priority badges based on your prototype colors
 const priorityClasses = computed(() => {
   if (props.task.priority === 'High Priority' || props.task.priority === 'High') return 'bg-[#fee2e2] text-[#b91c1c]';
   if (props.task.priority === 'Medium Priority' || props.task.priority === 'Medium') return 'bg-[#ffedd5] text-[#c2410c]';
@@ -54,12 +65,10 @@ const priorityClasses = computed(() => {
   return 'bg-slate-100 text-slate-600';
 });
 
-// Extract initials for the avatar (e.g., "Zakari" -> "Z")
 const assigneeInitials = computed(() => {
   return props.task.assignee ? props.task.assignee.charAt(0).toUpperCase() : '?';
 });
 
-// Assign a color based on the assignee to match your preview
 const assigneeColor = computed(() => {
   const colors = {
     'Rayan': '#D4862A',

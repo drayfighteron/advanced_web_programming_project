@@ -4,7 +4,7 @@
       
       <div class="text-center mb-8">
         <h1 class="text-3xl font-bold text-[#1C2340] flex items-center justify-center gap-2 mb-2">
-          EventSync <span class="text-2xl">📅</span>
+          EventSync <span class="text-2xl">💫</span>
         </h1>
         <p class="text-[13px] text-[#6b7280]">Secure Event Management Platform</p>
       </div>
