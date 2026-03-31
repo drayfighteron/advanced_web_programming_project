@@ -48,7 +48,6 @@
 <script setup>
 import { computed } from 'vue';
 
-// Tell the parent component when the edit button is clicked
 defineEmits(['edit']);
 
 const props = defineProps({

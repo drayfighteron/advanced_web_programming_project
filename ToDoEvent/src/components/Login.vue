@@ -43,6 +43,6 @@
 </template>
 
 <script setup>
-// No complex logic needed here yet, we just emit an event to the parent App.vue when they click login
+
 defineEmits(['login']);
 </script>

@@ -67,7 +67,7 @@ import { globalEvents } from '../store.js';
 
 defineEmits(['goBack', 'selectEvent', 'openDashboard']);
 
-// This dynamically looks for the day number inside your event string (e.g. "Sep 19, 2026")
+
 function eventsForDay(dayNum) {
   return globalEvents.value.filter(e => {
     if (!e.date) return false;
