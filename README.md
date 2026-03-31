@@ -195,7 +195,7 @@ Next step.
 GitHub repository:
 
 ```text
-https://github.com/drayfighteron/advanced_web_programming_project/tree/main
+https://github.com/drayfighteron/advanced_web_programming_project/
 ```
 
 ## Notes
