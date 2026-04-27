@@ -1,0 +1,25 @@
+{
+  "name": "myevents-backend",
+  "version": "1.0.0",
+  "description": "MyEvents backend using Sequelize and cookie sessions",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.3",
+    "sequelize": "^3.30.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
